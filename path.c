@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/stat.h>
+#nclude <sys/stat.h>
 
 /** path - function to find a command in the PATH */
 
@@ -20,7 +20,6 @@ int main(void)
 		if (stat(cmd, &buf) == 0)
 		{
 			char *command = strdup(cmd);
-			printf("command found %s\ ", command);
 			free(cmd);
 			free(path);
 			free(total);
