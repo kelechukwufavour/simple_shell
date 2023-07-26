@@ -1,15 +1,19 @@
 #include "shell.h"
-/**/
 
-void shell_exit(char **line, char **argv, char *run)
+/**
+ * shell_exit - closes the shell.
+ * @line: to be freed.
+ * @st: to be freed.
+*/
+
+void shell_exit(char **line, char *st)
 {
 	int check = 0;
 	int a = 0;
-	(void)argv;
 
 	if (line[1] == NULL)
 	{
-		free(run);
+		free(st);
 		free(line);
 		exit(0);
 	}
@@ -25,13 +29,13 @@ void shell_exit(char **line, char **argv, char *run)
 		else
 		{
 			write(STDERR_FILENO, "not found\n", 10);
-			free(run);
+			free(st);
 			free(line);
 			exit(2);
 		}
 	}
 
-	free(run);
+	free(st);
 	free(line);
 	exit(check);
 }

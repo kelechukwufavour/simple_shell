@@ -1,6 +1,12 @@
 #include "shell.h"
 #define SIZE 100
 
+/**
+ * find_file_in_path - search for executable files.
+ * @filename: name to be searched.
+ * Return: 0
+*/
+
 int find_file_in_path(const char *filename)
 {
 	char *total;
