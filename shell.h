@@ -22,6 +22,7 @@ void print_er127(char *argv0, struct stat *st,  char *line);
 void exec(char **argv, struct stat *st, char **env, char *line);
 void parsenexec(char **argv, struct stat *st, char *line, char **env);
 void freeinits(char *line, struct stat *st);
+char *getenv(const char *name)
 
 /* ************************* Function prototypes***************************/
 
