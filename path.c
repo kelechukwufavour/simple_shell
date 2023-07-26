@@ -1,36 +1,35 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#nclude <sys/stat.h>
+#include "shell.h"
+#define SIZE 100
 
-/** path - function to find a command in the PATH */
-
-int main(void)
+int find_file_in_path(const char *filename)
 {
-	char *path;
-	char *total, *cmd;
-	struct stat buf;
+	char *total;
+	struct stat st;
+	char fullPath[SIZE];
+	char *totalPath = getenv("PATH");
+	size_t len;
 
-	path = getenv("PATH");
-	total = strdup(path);
+	total = strtok(totalPath, ":");
 
-	while (total)
-	{
-		cmd = strtok(total, ":");
-		if (stat(cmd, &buf) == 0)
+	do {
+		my_strcpy(fullPath, total);
+		my_strcat(fullPath, "/");
+		my_strcat(fullPath, filename);
+		len = my_strlen(fullPath);
+
+		if (stat(fullPath, &st) == 0)
 		{
-			char *command = strdup(cmd);
-			free(cmd);
-			free(path);
-			free(total);
-
-			return 0;
+			write(1, " ", 1);
+			write(1, fullPath, len);
+			write(1, " found\n", 7);
+			return (0);
 		}
-		total = strtok(NULL, ":");
-	}
+	} while ((total = strtok(NULL, ":")));
 
-	free(path);
-	free(total);
-	return 0;
+	write(1, " ", 1);
+	write(1, fullPath, len);
+	write(1, " Not found\n", 11);
+
+	return (0);
 }
 

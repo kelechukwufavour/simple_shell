@@ -1,16 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "shell.h"
+/**/
 
-/** EXIT - Function to handle built-in "exit" command */
-
-int main(void)
+void shell_exit(char **line, char **argv, char *run)
 {
-	char **line;
-	char *run;
-	char **argv;
-	int arg;
+	int check = 0;
 	int a = 0;
+	(void)argv;
 
 	if (line[1] == NULL)
 	{
@@ -19,33 +14,25 @@ int main(void)
 		exit(0);
 	}
 
-	void handle_exit()
+	/* custom function to check if the argument is a valid number */
+	while (line[1][a])
 	{
-		printf("Exiting DMD&FAVOUR'S SHELL.......%s\n");
-		exit(0);
-	}
-
-	if (line[1] == NULL)
-	{
-		free(run);
-		free(line);
-		exit(0);
-	}
-	else
-	{
-		check = atoi(line[1]);
-		/* Assuming check is an int variable to store the converted value of line[1] to integer.*/
-		if (check >= 1)
+		if (line[1][a] >= '0' && line[1][a] <= '9')
 		{
-			perror("Error occurred:");
+			check = check * 10 + (line[1][a] - '0');
+			a++;
+		}
+		else
+		{
+			write(STDERR_FILENO, "not found\n", 10);
 			free(run);
 			free(line);
-			exit(check);
+			exit(2);
 		}
 	}
 
 	free(run);
 	free(line);
-	exit(0);
+	exit(check);
 }
 

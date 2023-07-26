@@ -6,7 +6,7 @@ This is a simple implementation of a UNIX command line interpreter. The shell ca
 
 Requirements
 
-All the files are to be compiled on an Ubuntu 14.04 LTS machine with: gcc -Wall -Werror -Wextra -pedantic *.c 
+All the files are to be compiled on an Ubuntu 14.04 LTS machine with: gcc -Wall -Werror -Wextra -pedantic *.c
 All files ends end with a new line, with no memory leaks
 All code will use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
 All code will be tested using the test files in the test folder.
@@ -257,8 +257,8 @@ $ echo $$
 5104
 $ echo $PATH
 /home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-$ exit 
-julien@ubuntu:~/shell$ 
+$ exit
+julien@ubuntu:~/shell$
 15. Comments
 
 Simple shell 1.0 +
@@ -269,7 +269,7 @@ julien@ubuntu:~/shell$ sh
 $ echo $$ # ls -la
 5114
 $ exit
-julien@ubuntu:~/shell$ 
+julien@ubuntu:~/shell$
 16. File as input
 
 Simple shell 1.0 +
@@ -282,4 +282,4 @@ In this mode, the shell should not print a prompt and should not read from stdin
 
 Contributors
 Ademide Adeboye
-Kelechukwu Favour 
+Kelechukwu Favour
