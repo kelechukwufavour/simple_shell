@@ -113,7 +113,7 @@ int main(int argc, char *av[], char **env)
 {
 	size_t n;
 	struct stat *st = malloc(sizeof(struct stat));
-	char *line, *buf = "$ ";
+	char *line = NULL, *buf = "$ ";
 	char *argv[50];
 	(void)av;
 	(void)argc;
